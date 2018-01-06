@@ -1,0 +1,18 @@
+nav#main-menu.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+  div.container
+    a.navbar-brand(href='/')
+      img(src='images/logo.png', alt='FSE Chat')
+    if user
+      div.navbar-right
+        span.btn.text-white(disabled="true") Welcome #{user.name}
+        a.btn.btn-danger(href='/logout') Logout
+    else
+      span.navbar-right
+        div.btn-group
+          a.btn.btn-default.text-white(href='/login') Login
+          a.btn.btn-default.text-white(href='/register') Register
+div.container
+  div.row
+    div.col-12
+      
+      p Welcome to #{title}

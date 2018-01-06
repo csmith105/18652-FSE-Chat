@@ -1,11 +1,17 @@
 doctype html
 html(lang='en') 
   head
-    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     link(rel='stylesheet', href='/css/lib/bootstrap/bootstrap.min.css')
     link(rel='stylesheet', href='/css/style.css')
+    link(rel='icon' href='favicon.ico')
+    title= title
   body
-    block content
+    include includes/header.pug
+    div.container
+      block content
+    include includes/footer.pug
     script(src='js/lib/angular/angular.min.js')
     script(src='js/lib/jquery/jquery-3.2.1.min.js')
     script(src='js/lib/popper/popper.min.js')
