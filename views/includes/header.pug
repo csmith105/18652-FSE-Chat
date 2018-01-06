@@ -1,7 +1,8 @@
-nav#main-menu.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   div.container
     a.navbar-brand(href='/')
       img(src='images/logo.png', alt='FSE Chat')
+      span.btn.text-white(disabled="true") A place to talk about 18652
     if user
       div.navbar-right
         span.btn.text-white(disabled="true") Welcome #{user.name}
@@ -11,8 +12,3 @@ nav#main-menu.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
         div.btn-group
           a.btn.btn-default.text-white(href='/login') Login
           a.btn.btn-default.text-white(href='/register') Register
-div.container
-  div.row
-    div.col-12
-      
-      p Welcome to #{title}

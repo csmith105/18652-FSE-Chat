@@ -1,4 +1,32 @@
 extends layout
 
 block content
-    p Testing 1, 2, 3...
+  div.row.mt-4
+    div.col-md-8
+      div.card
+        div.card-header Messages
+          span.float-sm-right Timestamp
+        div.card-body
+          div.message-bubble 
+            div.user.bg-primary Cody
+            span.message Testing 1, 2, 3...
+            div.time.text-muted 7:15 PM
+    div.col-md-4
+      div.card
+        div.card-header Who's Online
+        div.card-body
+          table.table
+            tbody
+              tr
+                td Mark
+              tr
+                td Kendra
+              tr
+                td Otto
+      div.card.mt-4
+        div.card-header How To Use
+        div.card-body
+          h4.card-title Special title treatment
+          p.card-text With supporting text below as a natural lead-in to additional content.
+          a.btn.btn-primary(href='#') Go somewhere
+      
