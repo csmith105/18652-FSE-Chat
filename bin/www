@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('18652-fse-chat:server');
 var http = require('http');
-var mongo = require('mongodb');
 
 /**
  * Get port from environment and store in Express.
