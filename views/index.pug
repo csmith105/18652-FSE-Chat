@@ -1,28 +1,26 @@
 extends layout
 
 block content
-  div.row.mt-4
+  div.row
     div.col-md-8
-      div.card
+      div.card.mt-4.message-card
         div.card-header Messages
-          span.float-sm-right Timestamp
-        div.card-body
-          div.message-bubble 
-            div.user.bg-primary Cody
-            span.message Testing 1, 2, 3...
-            div.time.text-muted 7:15 PM
+        div.card-body#message-comp
+          div.message-body(v-for="item in items")
+            div.user.bg-primary {{ item.author }}
+            div.message {{ item.text }}
+            div.time.text-muted {{ item.timestamp }}
+          div.message-entry
+            input.form-control.form-control-lg(type="text" placeholder="Message")
+          
     div.col-md-4
-      div.card
+      div.card.mt-4
         div.card-header Who's Online
         div.card-body
           table.table
             tbody
-              tr
+              tr#online
                 td Mark
-              tr
-                td Kendra
-              tr
-                td Otto
       div.card.mt-4
         div.card-header How To Use
         div.card-body

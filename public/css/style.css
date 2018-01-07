@@ -9,13 +9,8 @@
   margin: 0;
 }
 
-.message-entry {
-  position: absolute;
-  bottom: 60px;
-  height: 120px;
-}
-
-.message-bubble {
+.message-body {
+  margin-bottom: 15px;
   border-radius: 15px;
   font-size: 12pt;
   line-height: 30px;
@@ -25,17 +20,17 @@
   align-items: stretch;
 }
 
-.message-bubble .message {
+.message-body .message {
   flex-grow: 1;
   padding: 0 15px;
 }
 
-.message-bubble .user {
+.message-body .user {
   border-radius: 15px;
   color: #fff;
   padding: 0 15px;
 }
 
-.message-bubble .time {
+.message-body .time {
   padding: 0 15px;
 }

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.row
+    div.col-md-2
+    div.col-md-8
+      div.card.mt-4.message-card
+        div.card-header Register
+        div.card-body#message-comp
+          // Based on https://getbootstrap.com/docs/4.0/components/input-group/
+          form(action="/register" method="post")
+            div.input-group.mb-3
+              input.form-control(type="text" name="username" placeholder="Username" min="3" max="12" required="true")
+            div.input-group.mb-3
+              input.form-control(type="password" name="password" placeholder="Password" min="5" max="64" required="true")
+            div.input-group.mb-3
+              button.btn.btn-outline-secondary(type="submit") Login
+    div.col-md-2
