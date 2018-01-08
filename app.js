@@ -1,4 +1,33 @@
+// DB setup
+const Sequelize = require('sequelize');
+
+sequelize = new Sequelize('database', null, null, {
+  dialect: 'sqlite',
+  storage: 'db/database.sqlite'
+});
+
+sequelize.authenticate().then(() => {
+  console.log('Connection has been established successfully.');
+}).catch(err => {
+  console.error('Unable to connect to the database:', err);
+});
+
+// Model setup
+
+User = sequelize.define('User', {
+  username: {
+    type: Sequelize.STRING,
+    unique: true
+  },
+  password: {
+    type: Sequelize.STRING
+  }
+});
+
+User.sync({force: true});
+
 var express = require('express');
+
 var session = require('express-session');
 
 var path = require('path');
@@ -14,6 +43,7 @@ var register = require('./routes/register');
 
 var app = express();
 
+// Session
 app.use(session({
     secret: 'This assignment is kind of kicking my butt.',
     name: 'FSE-Chat',
@@ -27,7 +57,6 @@ app.use(session({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -35,6 +64,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
 app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
