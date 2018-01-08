@@ -2,6 +2,7 @@ extends layout
 
 block content
   div.row
+    div.col-md-2
     div.col-md-8
       div.card.mt-4.message-card
         div.card-header Messages
@@ -12,19 +13,5 @@ block content
             div.time.text-muted {{ item.timestamp }}
           div.message-entry
             input.form-control.form-control-lg(type="text" placeholder="Message")
-          
-    div.col-md-4
-      div.card.mt-4
-        div.card-header Who's Online
-        div.card-body
-          table.table
-            tbody
-              tr#online
-                td Mark
-      div.card.mt-4
-        div.card-header How To Use
-        div.card-body
-          h4.card-title Special title treatment
-          p.card-text With supporting text below as a natural lead-in to additional content.
-          a.btn.btn-primary(href='#') Go somewhere
+    div.col-md-2
       

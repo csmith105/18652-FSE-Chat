@@ -5,8 +5,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       span.btn.text-white(disabled="true") A place to talk about 18652
     if user
       div.navbar-right
-        span.btn.text-white(disabled="true") Welcome #{user.name}
-        a.btn.btn-danger(href='/logout') Logout
+        span.btn.text-white(disabled="true") Welcome #{user.username}
+        form.d-inline(action="/logout" method="get")
+          button.btn.d-inline.btn-danger(type="submit") Logout
     else
       span.navbar-right
         div.btn-group

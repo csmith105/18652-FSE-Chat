@@ -8,11 +8,12 @@ block content
         div.card-header Login
         div.card-body#message-comp
           // Based on https://getbootstrap.com/docs/4.0/components/input-group/
-          div.input-group.mb-3
-            input.form-control(type="text" placeholder="Username")
-          div.input-group.mb-3
-            input.form-control(type="text" placeholder="Password")
-          div.input-group.mb-3
-            button.btn.btn-outline-secondary(type="button") Login
+          form(action="/login" method="post")
+            div.input-group.mb-3
+              input.form-control(type="text" name="username" placeholder="Username" min="3" max="15" pattern="^[A-Za-z0-9]*$" required="true")
+            div.input-group.mb-3
+              input.form-control(type="text" name="password" placeholder="Password" min="5" max="64" required="true")
+            div.input-group.mb-3
+              button.btn.btn-outline-secondary(type="submit") Login
     div.col-md-2
       

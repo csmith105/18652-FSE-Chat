@@ -13,44 +13,54 @@ sequelize.authenticate().then(() => {
 });
 
 // Model setup
-
 User = sequelize.define('User', {
   username: {
     type: Sequelize.STRING,
-    unique: true
+    unique: true,
+    validate: { len: [2, 15], isAlphanumeric: true, }
   },
   password: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    validate: { len: [3, 64] }
   }
 });
 
 User.sync({force: true});
 
+Message = sequelize.define('Message', {
+  content: {
+    type: Sequelize.STRING,
+    validate: { len: [1, 255] }
+  }
+});
+
+Message.belongsTo(User);
+
+Message.sync({force: true});
+
 var express = require('express');
-
-var session = require('express-session');
-
+var cookieParser = require('cookie-parser');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var login = require('./routes/login');
+var logout = require('./routes/logout');
 var register = require('./routes/register');
 
 var app = express();
+app.use(cookieParser());
 
 // Session
+var session = require('express-session');
 app.use(session({
-    secret: 'This assignment is kind of kicking my butt.',
-    name: 'FSE-Chat',
-    //store: sessionStore, // connect-mongo session store
-    proxy: true,
+    name: 'app.sid',
+    secret: '1234',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { secure: false }
 }));
 
 // view engine setup
@@ -61,13 +71,12 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', index);
-app.use('/users', users);
 app.use('/login', login);
+app.use('/logout', logout);
 app.use('/register', register);
 
 // catch 404 and forward to error handler

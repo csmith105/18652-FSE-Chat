@@ -1,0 +1,6 @@
+{
+  "igonore": [
+    ".git",
+    "./sessions/**"
+  ]
+}
