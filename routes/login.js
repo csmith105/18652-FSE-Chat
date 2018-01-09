@@ -37,7 +37,7 @@ router.route('/').get(function(req, res) {
       req.session.save();
 
       res.render('success', {
-        strong: sess.user.username,
+        strong: req.session.user.username,
         message: ' successfully logged in.'
       });
 

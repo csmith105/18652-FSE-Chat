@@ -9,6 +9,11 @@
   margin: 0;
 }
 
+#message-comp {
+  overflow: auto;
+  height: 400px;
+}
+
 .message-body {
   margin-bottom: 15px;
   border-radius: 15px;

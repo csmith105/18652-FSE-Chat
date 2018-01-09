@@ -49,6 +49,7 @@ var index = require('./routes/index');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var register = require('./routes/register');
+var message = require('./routes/message');
 
 var app = express();
 app.use(cookieParser());
@@ -78,6 +79,7 @@ app.use('/', index);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/register', register);
+app.use('/message', message);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

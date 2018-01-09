@@ -12,8 +12,8 @@ html(lang='en')
     div.container
       block content
     include includes/footer.pug
-    script(src='/js/lib/vue/vue.min.js')
+    script(src='/js/lib/vue/vue.js')
     script(src='/js/lib/jquery/jquery-3.2.1.min.js')
     script(src='/js/lib/popper/popper.min.js')
     script(src='/js/lib/bootstrap/bootstrap.min.js')
-    script(src='/js/app.js')
+    block scripts

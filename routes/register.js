@@ -22,7 +22,7 @@ router.route('/').get(function(req, res) {
     if(db_user === null) {
 
       // No existing user found, create one
-      var user = User.create({
+      User.create({
         username: post_username,
         password: post_password
       }).then(user => {
@@ -34,12 +34,13 @@ router.route('/').get(function(req, res) {
 
         req.session.save();
 
-      });
+        // Render the success dialog
+        res.render('success', {
+          user: req.session.user,
+          strong: post_username,
+          message: ' successfully registered.'
+        });
 
-      // Render the success dialog
-      res.render('success', {
-        strong: post_username,
-        message: ' successfully registered.'
       });
 
     } else {
