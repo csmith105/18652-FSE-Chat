@@ -1,7 +1,20 @@
 # Cody's 18652-FSE-Chat
 18652 Pre-Registration Programming Assignment
 
-A simple chat application built on Node.js, Express.js, Angluar.js, Bootstrap, SQLite and the usual suspects (HTML5/ES6/CSS3).
+A simple chat application built on:
+
+## Server Side
+- Node.js
+- Express.js
+- Express-sessions
+- SQLite
+- Sequelize
+
+## Client Side
+- Vue.js
+- Axios
+- Bootstrap
+- And the usual suspects (HTML5/ES6/CSS3)
 
 ## Usage
 To run the server simply open a command prompt or terminal in the project's root folder (on Windows shift-right-click in the window and click the "Open PowerShell window here"), then execute "npm start".
