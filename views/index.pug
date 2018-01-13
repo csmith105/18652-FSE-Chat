@@ -8,12 +8,12 @@ block content
         div.card-header Messages
         div.card-body
           div#message-comp
-            div.message-body(v-for="item in items.data")
+            div.message-body(v-for="item in items")
               div.user.bg-primary {{ item.username }}
               div.message {{ item.content }}
-              div.time.text-muted {{ item.timestamp }}
+              div.time.text-muted {{ item.time }}
           div.message-entry
-            input.form-control.form-control-lg(type="text" placeholder="Message" v-model="newMessage" v-on:keyup="postMessage")
+            input.form-control.form-control-lg(type="text" placeholder="Message" v-model="messages" v-on:keyup="postMessage")
     div.col-md-2
       
 block scripts

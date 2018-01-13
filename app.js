@@ -2,6 +2,7 @@
 const Sequelize = require('sequelize');
 
 sequelize = new Sequelize('database', null, null, {
+  logging: false,
   dialect: 'sqlite',
   storage: 'db/database.sqlite'
 });
